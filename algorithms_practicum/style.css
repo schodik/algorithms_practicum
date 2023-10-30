@@ -1,0 +1,220 @@
+body {
+	background-color: #100e17;
+	font-family: 'Open Sans', sans-serif;
+  }
+  
+  .container {
+	position: absolute;
+	height: 600px;
+	width: 1200px;
+	top: 60px;
+	left: calc(25% - 250px);
+	display: flex;
+  }
+  
+  .card {
+	text-align: center;
+	display: flex;
+	height: 600px;
+	width: 600px;
+	background-color: #17141d;
+	border-radius: 10px;
+	box-shadow: -1rem 0 3rem #000;
+  /*   margin-left: -50px; */
+	transition: 0.4s ease-out;
+	position: relative;
+	left: 0px;
+  }
+  
+  .card:not(:first-child) {
+	  margin-left: -50px;
+  }
+  
+  .card:hover {
+	transform: translateY(-20px);
+	transition: 0.4s ease-out;
+  }
+  
+  .card:hover ~ .card {
+	position: relative;
+	left: 50px;
+	transition: 0.4s ease-out;
+  }
+  
+  .title {
+	color: white;
+	font-weight: 300;
+	position: absolute;
+	left: 20px;
+	top: 15px;
+  }
+  
+  .bar {
+	position: absolute;
+	top: 100px;
+	left: 20px;
+	height: 5px;
+	width: 150px;
+  }
+  
+  .emptybar {
+	background-color: #2e3033;
+	width: 100%;
+	height: 100%;
+  }
+  
+  .filledbar {
+	position: absolute;
+	top: 0px;
+	z-index: 3;
+	width: 0px;
+	height: 100%;
+	background: rgb(0,154,217);
+	background: linear-gradient(90deg, rgba(0,154,217,1) 0%, rgba(217,147,0,1) 65%, rgba(255,186,0,1) 100%);
+	transition: 0.6s ease-out;
+  }
+  
+  .card:hover .filledbar {
+	width: 120px;
+	transition: 0.4s ease-out;
+  }
+  
+  .circle {
+	position: absolute;
+	top: 150px;
+	left: calc(50% - 60px);
+  }
+  
+  .stroke {
+	stroke: white;
+	stroke-dasharray: 360;
+	stroke-dashoffset: 360;
+	transition: 0.6s ease-out;
+  }
+  
+  svg {
+	fill: #17141d;
+	stroke-width: 2px;
+  }
+  
+  .card:hover .stroke {
+	stroke-dashoffset: 100;
+	transition: 0.6s ease-out;
+  }
+
+
+  @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200,900');
+
+  :root {
+	--text-color: hsla(210, 50%, 85%, 1);
+	--shadow-color: hsla(210, 40%, 52%, .4);
+	--btn-color: hsl(210, 80%, 42%);
+	--bg-color: #141218;
+  }
+  
+  * {
+	box-sizing: border-box;
+  }
+  
+  
+  button {
+	position:relative;
+	margin-top: 4%;
+	border: none;
+	background: none;
+	cursor: pointer;
+	
+	font-family: "Source Code Pro";
+	font-weight: 900;
+	text-transform: uppercase;
+	font-size: 30px;  
+	color: var(--text-color);
+	
+	background-color: var(--btn-color);
+	box-shadow: var(--shadow-color) 2px 2px 22px;
+	border-radius: 4px; 
+	z-index: 0;  
+	overflow: hidden;   
+  }
+  
+  button:focus {
+	outline-color: transparent;
+	box-shadow: var(--btn-color) 2px 2px 22px;
+  }
+  
+  .right::after, button::after {
+	content: var(--content);
+	display: block;
+	position: absolute;
+	white-space: nowrap;
+	padding: 40px 40px;
+	pointer-events:none;
+  }
+  
+  button::after{
+	font-weight: 200;
+	top: -30px;
+	left: -20px;
+  } 
+  
+  .right, .left {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+  }
+  .right {
+	left: 66%;
+  }
+  .left {
+	right: 66%;
+  }
+  .right::after {
+	top: -30px;
+	left: calc(-66% - 20px);
+	
+	background-color: var(--bg-color);
+	color:transparent;
+	transition: transform .4s ease-out;
+	transform: translate(0, -90%) rotate(0deg)
+  }
+  
+  button:hover .right::after {
+	transform: translate(0, -47%) rotate(0deg)
+  }
+  
+  button .right:hover::after {
+	transform: translate(0, -50%) rotate(-7deg)
+  }
+  
+  button .left:hover ~ .right::after {
+	transform: translate(0, -50%) rotate(7deg)
+  }
+  
+  /* bubbles */
+  button::before {
+	content: '';
+	pointer-events: none;
+	opacity: .6;
+	background:
+	  radial-gradient(circle at 20% 35%,  transparent 0,  transparent 2px, var(--text-color) 3px, var(--text-color) 4px, transparent 4px),
+	  radial-gradient(circle at 75% 44%, transparent 0,  transparent 2px, var(--text-color) 3px, var(--text-color) 4px, transparent 4px),
+	  radial-gradient(circle at 46% 52%, transparent 0, transparent 4px, var(--text-color) 5px, var(--text-color) 6px, transparent 6px);
+  
+	width: 100%;
+	height: 300%;
+	top: 0;
+	left: 0;
+	position: absolute;
+	animation: bubbles 5s linear infinite both;
+  }
+  
+  @keyframes bubbles {
+	from {
+	  transform: translate();
+	}
+	to {
+	  transform: translate(0, -66.666%);
+	}
+  }
+  
