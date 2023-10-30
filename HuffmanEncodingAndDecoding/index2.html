@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang>
+<head>
+    <meta charset="UTF-8">
+    <title>Декодирование Хаффмана</title>
+</head>
+<body>
+    <h1>Восстановление строки по коду Хаффмана</h1>
+    <textarea id="huffmanData" rows="10" cols="50" placeholder="Вставьте данные кодирования в формате: 'symbol': 'code', одна запись в строке"></textarea><br>
+    <textarea id="encodedText" rows="4" cols="50" placeholder="Вставьте закодированную строку..."></textarea><br>
+    <button id="decodeButton">Декодировать</button>
+    <button id="clearButton">Очистить</button><br>
+    <div id="decodedResult"></div>
+    <div id="errorOutput" style="color: rgb(252, 92, 92);"></div>
+    <p>Пример кода</p>
+    <p>' ': '1011',
+        <p>'.': '1110',</p>
+        <p>'D': '1000',</p>
+        <p>'c': '000',</p>
+        <p>'d': '001',</p>
+        <p>'e': '1001',</p>
+        <p>'i': '010',</p>
+        <p>'m': '1100',</p>
+        <p>'n': '1010',</p>
+        <p>'o': '1111',</p>
+        <p>'s': '011',</p>
+        <p>'u': '1101'</p>
+    </p>
+    <p>Пример закодированной строки: 100011110001001101000111111011001010011000010110011010111110
+    </p>
+    <script src="script2.js"></script>
+</body>
+</html>
